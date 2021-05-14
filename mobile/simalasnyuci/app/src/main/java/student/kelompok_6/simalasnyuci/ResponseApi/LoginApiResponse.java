@@ -1,5 +1,6 @@
 package student.kelompok_6.simalasnyuci.ResponseApi;
 
+
 import androidx.annotation.Nullable;
 
 import student.kelompok_6.simalasnyuci.model.User;

@@ -7,14 +7,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import student.kelompok_6.simalasnyuci.ResponseApi.LoginApiResponse;
+import student.kelompok_6.simalasnyuci.api.ApiSiMalasNyuci;
+import student.kelompok_6.simalasnyuci.api.RESTClient;
+import student.kelompok_6.simalasnyuci.model.User;
+
 public class LoginActivity extends AppCompatActivity {
     private AppCompatButton btnLogin;
     private EditText etEmail, etPassword;
-    private TextView linkToRegister;
+    private TextView linkToRegister, tvEmailError, tvPasswordError;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +33,40 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPass);
         linkToRegister = findViewById(R.id.toRegister);
+        tvEmailError = findViewById(R.id.tvEmailError);
+        tvPasswordError = findViewById(R.id.tvPasswordError);
         btnLogin.setOnClickListener(v->{
-            Toast.makeText(this, "Success to call", Toast.LENGTH_LONG).show();
+            ApiSiMalasNyuci client = RESTClient.get();
+            Call<LoginApiResponse> call =client.loginApi(etEmail.getText().toString(), etPassword.getText().toString());
+            call.enqueue(new Callback<LoginApiResponse>() {
+                @Override
+                public void onResponse(Call<LoginApiResponse> call, Response<LoginApiResponse> response) {
+                    if(response.isSuccessful()){
+                        User user = response.body().getUser();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("user", user);
+                        tvPasswordError.setVisibility(View.GONE);
+                        tvEmailError.setVisibility(View.GONE);
+                        startActivity(intent);
+                        finish();
+                    }else if(response.code() == 404){
+                        tvEmailError.setVisibility(View.VISIBLE);
+                        tvEmailError.setText("Email Tidak Ditemukan!");
+                        tvPasswordError.setVisibility(View.GONE);
+                    }else if(response.code() == 401){
+                        tvEmailError.setVisibility(View.GONE);
+                        tvPasswordError.setVisibility(View.VISIBLE);
+                        tvPasswordError.setText("Password Salah!");
+                    }else if(response.code() == 500){
+                        Toast.makeText(LoginActivity.this, String.valueOf(response.code())
+                                + " Internal Server Error, check your email or password", Toast.LENGTH_LONG).show();
+                    }
+                }
+                @Override
+                public void onFailure(Call<LoginApiResponse> call, Throwable t) {
+                    Toast.makeText(LoginActivity.this, t.getMessage().toString(), Toast.LENGTH_LONG).show();
+                }
+            });
         });
         linkToRegister.setOnClickListener(v->{
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
