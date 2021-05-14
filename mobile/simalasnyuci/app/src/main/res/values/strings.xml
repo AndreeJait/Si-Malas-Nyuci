@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Si Malas Nyuci</string>
+
+    <string name="sub_title">Aplikasi Laundry</string>
+    <string name="login_header">Sudah Memiliki Akun ?</string>
+    <string name="register_header">Ayo Bergabung Bersama Kami</string>
+
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_name">Nama</string>
+    <string name="label_no_hp">No. HP</string>
+    <string name="label_role">Role</string>
+
+    <string name="label_have_account">Pengguna Baru ? Daftar Sekarang</string>
+
+    <string name="btn_login_text">Masuk</string>
+    <string name="btn_register_text">Mendaftar</string>
+    <array name="role">
+        <item>Pemilik Laundry</item>
+        <item>Karyawan Laundry</item>
+    </array>
+
+</resources>
