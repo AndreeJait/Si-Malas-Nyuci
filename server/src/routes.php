@@ -52,13 +52,13 @@ return function (App $app) {
                 if (password_verify($users['password'], $result['password'])) {
                     return $response->withJson(['status' => 'success', 'message' => 'Succes To Login', 'user' => $result], 200);
                 } else {
-                    return $response->withJson(['status' => 'failed', 'message' => 'Auth Invalid', 'password' => $result['password']], 401);
+                    return $response->withJson(['status' => 'failed', 'message' => 'Auth Invalid', 'user' => null], 401);
                 }
             } else {
-                return $response->withJson(['status' => 'failed', 'message' => 'Email Not Found'], 404);
+                return $response->withJson(['status' => 'failed', 'message' => 'Email Not Found','user' => null], 404);
             }
         }
-        return $response->withJson(['status' => 'failed', 'message' => 'Email and Password Needed'], 500);
+        return $response->withJson(['status' => 'failed', 'message' => 'Email and Password Needed', 'user' =>null], 500);
     });
     $app->post('/register', function (Request $request, Response $response) {
 
@@ -92,13 +92,13 @@ return function (App $app) {
                     $result = $stmt->fetch();
                     return $response->withJson(['status' => 'success', 'message' => 'Succes To Register', 'user' => $result], 200);
                 } else {
-                    return $response->withJson(['status' => 'failed', 'message' => 'Failed to insert data'], 400);
+                    return $response->withJson(['status' => 'failed', 'message' => 'Failed to insert data', 'user' => null], 400);
                 }
             }else{
-                return $response->withJson(['status' => 'failed', 'message' => 'Email Exist'], 400);
+                return $response->withJson(['status' => 'failed', 'message' => 'Email Exist', 'user' => null], 400);
             }
         }
-        return $response->withJson(['status' => 'failed', 'message' => 'Internal Server Error'], 500);
+        return $response->withJson(['status' => 'failed', 'message' => 'Internal Server Error', 'user' =>null], 500);
     });
     $app->get("/info/laundry/{id}", function (Request $request, Response $response) {
         return $response->withJson(['password_has' => password_hash('andree110102', PASSWORD_DEFAULT)], 200);
