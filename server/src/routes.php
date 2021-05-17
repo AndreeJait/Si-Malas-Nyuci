@@ -40,7 +40,7 @@ return function (App $app) {
         return $response->withJson(["status" => "Unauthorized"], 401);
     };
 
-    $app->post('/login', function (Request $request, Response $response) {
+    $app->post('/api/login', function (Request $request, Response $response) {
 
         if ($request->getParsedBody() !== null) {
             $users = $request->getParsedBody();
@@ -60,7 +60,7 @@ return function (App $app) {
         }
         return $response->withJson(['status' => 'failed', 'message' => 'Email and Password Needed', 'user' =>null], 500);
     });
-    $app->post('/register', function (Request $request, Response $response) {
+    $app->post('/api/register', function (Request $request, Response $response) {
 
         if ($request->getParsedBody() !== null) {
             $users = $request->getParsedBody();
