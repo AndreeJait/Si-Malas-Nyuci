@@ -13,7 +13,7 @@ public class RESTClient {
     private static void setupRestClient() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.15/si-malas-nyuci/server/public/")
+                .baseUrl("http://simalasnyuci-backend.awesomeproject.id/server/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         REST_CLIENT = retrofit.create(ApiSiMalasNyuci.class);
