@@ -8,7 +8,7 @@ import student.kelompok_6.simalasnyuci.ResponseApi.LoginApiResponse;
 
 public interface ApiSiMalasNyuci {
     @FormUrlEncoded
-    @POST("login")
+    @POST("api/login")
     Call<LoginApiResponse> loginApi(@Field("email") String email,
                   @Field("password") String password);
 }
