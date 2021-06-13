@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".pemilik.DashboardActivity"
-    android:background="@drawable/backg_dash">
+    >
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearTop"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@drawable/backg_dash">
 
         <RelativeLayout
             android:layout_marginTop="32dp"
@@ -40,17 +42,23 @@
                 android:layout_alignParentLeft="true"
                 android:src="@drawable/loundry_logo" />
         </RelativeLayout>
+    </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/linearTop"
+        android:paddingVertical="10dp"
+        android:layout_marginTop="-75dp" >
         <GridLayout
             android:columnCount="2"
-            android:rowCount="3"
             android:alignmentMode="alignMargins"
             android:columnOrderPreserved="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -74,6 +82,8 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#000000"
                         android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:text="History Pencucian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -82,7 +92,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -106,6 +116,8 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#000000"
                         android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:text="Informasi Cucian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -113,7 +125,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -137,6 +149,8 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#000000"
                         android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:text="Konfirmasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -144,7 +158,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -168,6 +182,8 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#000000"
                         android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:text="Informasi Pegawai"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -176,7 +192,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -200,6 +216,8 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#000000"
                         android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:text="Pelanggan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -209,12 +227,7 @@
 
         </GridLayout>
 
-    </LinearLayout>
 
+    </ScrollView>
 
-
-
-
-
-
-</ScrollView>
+</RelativeLayout>
