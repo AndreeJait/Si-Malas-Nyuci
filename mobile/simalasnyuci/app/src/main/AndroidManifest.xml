@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SiMalasNyuci"
         android:usesCleartextTraffic="true">
-        <activity android:name=".pemilik.ListPegawai"></activity>
+        <activity android:name=".pemilik.InformasiCucianActivity"></activity>
+        <activity android:name=".pemilik.ListPegawaiActivity" />
         <activity
             android:name=".pemilik.DashboardActivity"
             android:label="@string/title_activity_dashboard"
