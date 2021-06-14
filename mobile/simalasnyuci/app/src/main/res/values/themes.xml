@@ -22,4 +22,6 @@
     <style name="Theme.SiMalasNyuci.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SiMalasNyuci.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 </resources>

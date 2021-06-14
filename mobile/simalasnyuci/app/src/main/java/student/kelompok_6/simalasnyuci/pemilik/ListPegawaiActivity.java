@@ -5,7 +5,7 @@ import student.kelompok_6.simalasnyuci.R;
 
 import android.os.Bundle;
 
-public class ListPegawai extends AppCompatActivity {
+public class ListPegawaiActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
