@@ -16,7 +16,7 @@ public class Launch extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/layout/layout_login_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/layout/layout_register_page.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Simalas Nyuci");
