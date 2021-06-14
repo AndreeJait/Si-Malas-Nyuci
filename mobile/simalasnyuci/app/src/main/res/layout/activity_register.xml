@@ -28,10 +28,11 @@
             android:src="@drawable/logo_register"></ImageView>
     </LinearLayout>
     <ScrollView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        >
         <LinearLayout
-            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"

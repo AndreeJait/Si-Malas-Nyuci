@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="student.kelompok_6.simalasnyuci">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,14 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SiMalasNyuci"
         android:usesCleartextTraffic="true">
-        <activity android:name=".pemilik.ListPegawai"></activity>
+        <activity android:name=".pegawai.PegawaiActivity"/>
+        <activity android:name=".pemilik.ListPegawai" />
         <activity
             android:name=".pemilik.DashboardActivity"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.SiMalasNyuci.NoActionBar" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +29,5 @@
         </activity>
         <activity android:name=".MainActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
