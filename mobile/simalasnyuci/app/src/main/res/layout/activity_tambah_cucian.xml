@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Tambahkan Cucian"
+            android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textSize="18sp"/>
 

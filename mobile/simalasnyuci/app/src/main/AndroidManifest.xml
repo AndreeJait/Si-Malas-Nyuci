@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SiMalasNyuci"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".pemilik.TambahCucianActivity"></activity>
         <activity android:name=".pegawai.PegawaiActivity" />
         <activity android:name=".pemilik.InformasiCucianActivity" />
         <activity android:name=".pemilik.ListPegawaiActivity" />
@@ -21,8 +21,7 @@
             android:theme="@style/Theme.SiMalasNyuci.NoActionBar" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreenActivity"/>
-        <activity android:name=".pemilik.TambahCucianActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
