@@ -17,6 +17,7 @@ import student.kelompok_6.simalasnyuci.ResponseApi.LoginApiResponse;
 import student.kelompok_6.simalasnyuci.api.ApiSiMalasNyuci;
 import student.kelompok_6.simalasnyuci.api.RESTClient;
 import student.kelompok_6.simalasnyuci.model.User;
+import student.kelompok_6.simalasnyuci.pegawai.PegawaiActivity;
 import student.kelompok_6.simalasnyuci.pemilik.DashboardActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -42,12 +43,20 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<LoginApiResponse> call, Response<LoginApiResponse> response) {
                     if(response.isSuccessful()){
                         User user = response.body().getUser();
-                        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                        intent.putExtra("user", user);
                         tvPasswordError.setVisibility(View.GONE);
                         tvEmailError.setVisibility(View.GONE);
-                        startActivity(intent);
-                        finish();
+                        String role = user.getRole();
+                        if(role.equals("Owner")){
+                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                            intent.putExtra("user", user);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Intent intent = new Intent(LoginActivity.this, PegawaiActivity.class);
+                            intent.putExtra("user", user);
+                            startActivity(intent);
+                            finish();
+                        }
                     }else if(response.code() == 404){
                         tvEmailError.setVisibility(View.VISIBLE);
                         tvEmailError.setText("Email Tidak Ditemukan!");

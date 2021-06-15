@@ -1,7 +1,7 @@
 <resources>
     <array name="role">
-        <item>Pemilik Laundry</item>
         <item>Karyawan Laundry</item>
+        <item>Pemilik Laundry</item>
     </array>
 
     <string name="app_name">Si Malas Nyuci</string>

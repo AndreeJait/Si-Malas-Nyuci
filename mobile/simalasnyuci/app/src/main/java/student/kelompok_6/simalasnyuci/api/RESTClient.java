@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RESTClient {
     private static ApiSiMalasNyuci REST_CLIENT;
-
+    public static String BASE_URL = "http://192.168.1.6/si-malas-nyuci/server/public/";
     static {
         setupRestClient();
     }
@@ -13,7 +13,7 @@ public class RESTClient {
     private static void setupRestClient() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://simalasnyuci-backend.awesomeproject.id/server/public/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         REST_CLIENT = retrofit.create(ApiSiMalasNyuci.class);

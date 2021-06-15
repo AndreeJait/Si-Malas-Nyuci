@@ -53,7 +53,15 @@ $app->post('/api/register', function (Request $request, Response $response) {
                 $stmt = $this->db->prepare($sql);
                 $stmt->execute([':email' => $users['email']]);
                 $result = $stmt->fetch();
-                return $response->withJson(['status' => 'success', 'message' => 'Succes To Register', 'user' => $result], 200);
+                if($users["role"] !== 0){
+                    $sql = "INSERT INTO laundry_employees (kode_laundry, idPegawai) VALUE (:kode, :id)";
+                    $stmt = $this->db->prepare($sql);
+                    if($stmt->execute([':kode' => $users['kode'], ':id' => $result['id']])){
+                        return $response->withJson(['status' => 'success', 'message' => 'Succes To Register', 'user' => $result], 200);
+                    }
+                }else{
+                    return $response->withJson(['status' => 'success', 'message' => 'Succes To Register', 'user' => $result], 200);
+                }
             } else {
                 return $response->withJson(['status' => 'failed', 'message' => 'Failed to insert data', 'user' => null], 400);
             }

@@ -7,8 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import student.kelompok_6.simalasnyuci.R;
+import student.kelompok_6.simalasnyuci.api.RESTClient;
+import student.kelompok_6.simalasnyuci.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,16 +56,21 @@ public class DashboardPegawai extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_dashboard_pegawai, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard_pegawai, container, false);
+        User user = (User) getActivity().getIntent().getSerializableExtra("user");
+        ImageView profile = view.findViewById(R.id.usersProfile);
+        Picasso.get()
+                .load(RESTClient.BASE_URL + "uploads/users/" + user.getProfile())
+                .placeholder(R.drawable.profil)
+                .fit()
+                .into(profile);
+        return view;
     }
 }

@@ -26,8 +26,9 @@
                 android:textColor="@color/white"
                 android:text="My Dashboard"></TextView>
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/usersProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="end"
                 android:src="@drawable/logo_pegawai"
                 >
