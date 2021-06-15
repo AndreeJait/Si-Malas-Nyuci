@@ -5,11 +5,11 @@ import student.kelompok_6.simalasnyuci.R;
 
 import android.os.Bundle;
 
-public class ListPegawai extends AppCompatActivity {
+public class InformasiCucianActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_item_pegawai);
+        setContentView(R.layout.activity_informasi_cucian);
     }
 }
