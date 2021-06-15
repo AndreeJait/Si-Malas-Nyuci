@@ -2,17 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="student.kelompok_6.simalasnyuci">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SiMalasNyuci"
         android:usesCleartextTraffic="true">
         <activity android:name=".pemilik.LaundryActivity"></activity>
+        <activity android:name=".pemilik.InformasiPelangganActivity"></activity>
+        <activity android:name=".pemilik.TambahCucianActivity" />
         <activity android:name=".pegawai.PegawaiActivity" />
         <activity android:name=".pemilik.InformasiCucianActivity" />
         <activity android:name=".pemilik.ListPegawaiActivity" />
@@ -31,5 +32,7 @@
         </activity>
         <activity android:name=".MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
