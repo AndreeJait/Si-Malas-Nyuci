@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SiMalasNyuci"
         android:usesCleartextTraffic="true">
-        <activity android:name=".pemilik.InformasiPelangganActivity"></activity>
+        <activity android:name=".pemilik.OrderDetailActivity"></activity>
+        <activity android:name=".pemilik.InformasiPelangganActivity" />
         <activity android:name=".pemilik.TambahCucianActivity" />
         <activity android:name=".pegawai.PegawaiActivity" />
         <activity android:name=".pemilik.InformasiCucianActivity" />
