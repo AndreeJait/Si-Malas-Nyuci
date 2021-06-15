@@ -102,6 +102,7 @@
                 android:layout_margin="12dp">
 
                 <LinearLayout
+                    android:id="@+id/menuCucian"
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:gravity="center"
@@ -119,7 +120,7 @@
                         android:textSize="18sp"
                         android:layout_gravity="center"
                         android:textAlignment="center"
-                        android:text="Informasi Cucian"
+                        android:text="Cucian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -168,6 +169,7 @@
                 android:layout_margin="12dp">
 
                 <LinearLayout
+                    android:id="@+id/menuPegawai"
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:gravity="center"

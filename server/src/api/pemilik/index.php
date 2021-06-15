@@ -23,6 +23,39 @@ function moveUploadedFile($directory, UploadedFile $uploadedFile){
    return $filename;
    }
 
+$app->post("/cucian", function(Request $request, Response $response){
+    $body = $request->getParsedBody();
+    $files = $request->getUploadedFiles();
+    if(count($body) > 0){
+        $kode_cucian = getRandomId();
+        $nama_pelanggan = $body["nama"];
+        $harga = $body["harga"];
+        $no_telepon = $body["no_telepon"];
+        $cucian = moveUploadedFile("./uploads/laundry/",$files["cucian"]);
+        $deskripsi = $body["deskripsi"];
+        $kode_laundry = $body["kode_laundry"];
+        $tanggal_selesai = $body["tanggal_selesai"];
+        $sql = "INSERT INTO cucian (kode_cucian, status, image,deskripsi, harga, kode_laundry,tanggal_selesai, nama_pelanggan, no_telepon) 
+                                    VALUE (:kode_cucian,0, :cucian,:deskripsi,:harga,:kode_laundry, :tanggal_selesai, :nama_pelanggan, :no_telepon)";
+        $stmt = $this->db->prepare($sql);
+        $needed = [
+            ":kode_cucian"=>$kode_cucian,
+            ":cucian"=>$cucian,
+            ":deskripsi"=>$deskripsi,
+            ":harga"=>$harga,
+            ":kode_laundry"=>$kode_laundry,
+            ":tanggal_selesai"=>$tanggal_selesai,
+            ":nama_pelanggan"=>$nama_pelanggan,
+            ":no_telepon"=>$no_telepon
+        ];
+        if($stmt->execute($needed)){
+            return $response->withJson(["msg"=> "Succes add new cucian.", "status"=>"Succes add data.", "code"=>201],201);
+        }
+    }else{
+        return $response->withJson(["msg"=>"Body can't empty.", "status"=>"Body is empty.", "code"=>400], 400);
+    }
+    return $response->withJson(["msg"=>"Sorry, Internal server error", "status"=>"Internal server error.", "code"=>500], 500);
+});
 $app->post("/laundry", function(Request $request, Response $response){
     $body = $request->getParsedBody();
     $files = $request->getUploadedFiles();

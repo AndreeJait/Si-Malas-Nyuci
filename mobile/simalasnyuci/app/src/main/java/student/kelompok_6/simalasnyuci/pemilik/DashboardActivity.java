@@ -37,5 +37,15 @@ public class DashboardActivity extends AppCompatActivity {
             Intent intent = new Intent(DashboardActivity.this, LaundryActivity.class);
             startActivity(intent);
         });
+        LinearLayout menuPegawai = findViewById(R.id.menuPegawai);
+        menuPegawai.setOnClickListener(v->{
+            Intent intent = new Intent(DashboardActivity.this, ListPegawaiActivity.class);
+            startActivity(intent);
+        });
+        LinearLayout menuCucian = findViewById(R.id.menuCucian);
+        menuCucian.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, TambahCucianActivity.class);
+            startActivity(intent);
+        });
     }
 }

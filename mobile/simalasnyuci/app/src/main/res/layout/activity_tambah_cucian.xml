@@ -51,15 +51,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="10dp">
     </EditText>
-    <EditText
-        android:id="@+id/etBerat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textShortMessage"
-        android:hint="Berat Cucian (Kg)"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="10dp">
-    </EditText>
+
     <EditText
         android:id="@+id/etDeskripsi"
         android:layout_width="match_parent"
@@ -77,6 +69,15 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="10dp">
     </EditText>
+    <EditText
+        android:id="@+id/tangggalSelesai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="Tanggal Selesai"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp">
+    </EditText>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,13 +86,14 @@
         android:layout_marginLeft="10dp"
         android:textSize="16sp"/>
     <ImageView
+        android:id="@+id/IdProf"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:layout_marginLeft="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/add_image"/>
     <Button
-        android:id="@+id/btnUploadImg"
+        android:id="@+id/UploadBtn"
         android:layout_width="75dp"
         android:layout_height="35dp"
         android:textSize="10sp"
